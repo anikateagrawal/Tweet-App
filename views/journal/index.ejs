@@ -1,0 +1,15 @@
+<% layout('layout/boilerplate')-%>
+<h1 class="pt-3 indexh1 d-flex justify-content-center">Tweet-APP</h1>
+<div class="tweet">
+<div class="row mt-5">
+    <h1>Tweet</h1>
+    <form action="/journal/compose" method="POST">
+        <label class="form-label" for="postTitle">Title</label>
+        <input class="form-control" type="text" name="postTitle" id="postTitle">
+        <label class="form-label" for="pp">Tweet</label>
+        <textarea class="form-control" name="pp" id="pp" cols="30" rows="2"></textarea>
+        <button class="btn btn-success btn-sm mt-2">Publish</button>
+    </form>
+</div>
+</div>
+<%-include('../partials/article')%>

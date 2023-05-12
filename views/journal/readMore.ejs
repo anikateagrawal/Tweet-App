@@ -1,0 +1,78 @@
+<% layout('layout/boilerplate')-%>
+<div class="row mt-5">
+<div class="container border border-secondary p-3 arti article col-lg-4">
+    <h1><%=post.postTitle%></h1>
+    <% if( post.creator) {%>
+      <p>@<%=post.creator.username%></p>
+    <%}%>
+    <%=post.date%>
+    <p><%=post.pp%></p>
+    <% if( post.creator) {%>
+    <%if(post.creator.id==user.id){%>
+    <a href="/journal/edit/<%=post.id%>"><button class="btn btn-secondary btn-sm">Edit</button></a>
+    <form class="d-inline-block" action="/journal/<%=post.id%>?_method=DELETE" method="POST"><button class="btn btn-secondary btn-sm">DELETE</button></form>
+    <%}%>
+    <%}%>
+    <form action="/journal/saved/<%=post.id%>/add" method="post" class="d-inline"><button class="btn btn-primary">Save</button></form>
+</div>
+<% if( post.creator) {%>
+    <div class="col-lg-4">
+      <div class="card pt-3 d-flex align-items-center" style="width: 18rem;">
+        <h2> Author </h2>
+        <img src="<%=post.creator.image%>" class="card-img-top image" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title"><%=post.creator.username%></h5>
+          <h6 class="card-text"><%=post.creator.Name%></h6>
+          <p class="card-text"><%=post.creator.email%></p>
+            <p class="card-text"><%=post.creator.bio%></p>
+            <p class="card-text"><%=post.creator.Address%></p>
+        </div>
+      </div>
+  </div>
+  <%}%>
+
+    <div class="card col-lg-4">
+      <div class="card-body">
+        <form action="/journal/<%=post.id%>/review" method="post">
+          <h1>Add Comment</h1>
+          <fieldset class="starability-basic">
+            <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+            <input type="radio" id="first-rate1" name="rating" value="1" />
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <input type="radio" id="first-rate2" name="rating" value="2" />
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <input type="radio" id="first-rate3" name="rating" value="3" />
+            <label for="first-rate3" title="Average">3 stars</label>
+            <input type="radio" id="first-rate4" name="rating" value="4" />
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <input type="radio" id="first-rate5" name="rating" value="5" />
+            <label for="first-rate5" title="Amazing">5 stars</label>
+          </fieldset>
+  
+          <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label><br />
+            <textarea name="comment" id="comment" class="form-control" rows="5"></textarea>
+          </div>
+  
+          <button type="submit" class="btn btn-success">Add Review</button>
+        </form>
+        <h1 class="mt-5">Comments</h1>
+        <% for(let review of post.reviews){ %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="starability-result" data-rating="<%=review.rating%>">
+              Rated: <%=review.rating%> stars
+            </p>
+            <p>@<%=review.username%></p>
+          <p>Comment: <%=review.comment%></p>
+  
+          <% if(user && review.creator == user.id) { %>
+          <form action="/journal/<%=post.id%>/reviews/<%=review.id%>?_method=delete" method="post"><button class="btn btn-danger">delete</button></form>
+          <%}%>
+        </div>
+        </div>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</div>

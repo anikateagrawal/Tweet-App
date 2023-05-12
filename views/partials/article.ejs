@@ -1,0 +1,23 @@
+
+<div class="container">
+    <%for(let p of posts){%>
+        <div class="p-3 article m-3 arti">
+            <h2 class="artih2"><u><%=p.postTitle%></u></h2>
+            <%if(p.creator){%>
+                <a class="artia"  href="/profile/<%=p.creator.id%>"><p><img style="border-radius:50% ; margin-right:20px" src="<%=p.creator.image%>" alt="" height="30" width="30"> @ <%=p.creator.username%></p></a>
+            <%}%>
+            <%=p.date%>
+            <p class="artip"><%=p.pp.substring(0,400)%>... <a href="/journal/show/<%=p.id%>"> ReadMore</a></p>
+            <%if(!user.saved.includes(p.id)){%>
+            <form action="/journal/saved/<%=p.id%>/add" method="post" class="d-inline"><button class="btn btn-success">Like</button></form>
+            <%}else{%>
+                <form class="d-inline-block" action="/journal/saved/<%=p.id%>?_method=delete" method="post"><button class="btn btn-danger">Remove Like</button></form>
+                <%}%>
+            <%if(p.creator&&user&&p.creator.id==user.id){%>
+                <a href="/journal/edit/<%=p.id%>"><button class="btn btn-info"> Edit </button></a>
+                <form class="d-inline-block" action="/journal/<%=p.id%>?_method=DELETE" method="POST"><button class="btn btn-danger">DELETE</button></form>
+            <%}%>
+            <p><%=p.reviews.length%> : comments</p>
+        </div>
+    <%}%>
+</div>

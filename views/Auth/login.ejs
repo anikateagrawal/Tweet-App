@@ -1,0 +1,18 @@
+<% layout('layout/boilerplate')-%>
+
+<div class="row mt-5">
+    <div class="col-lg-6 mx-auto">
+        <h1>LogIn</h1><br>
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="username">UserName:</label>
+                <input class="form-control" type="text" name="username" id="username" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-control" type="password" name="password" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">LogIn</button>
+        </form>
+    </div>
+</div>

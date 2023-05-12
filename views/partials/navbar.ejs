@@ -1,0 +1,60 @@
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark" >
+    <!-- style="background-color: rgba(0, 0, 0, 0.2);" -->
+    <div class="container">
+    <a class="navbar-brand">Tweet App</a>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto ">
+        <li class="nav-item ">
+            <a class="nav-link h" aria-current="page" href="/journal">Home</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link h" aria-current="page" href="/following">Following</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link h" href="/journal/myjournals">My Tweets</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link h" href="/journal/compose">Add Tweet</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link h" href="/journal/about">About</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link h" href="/journal/contact">Contact Us</a>
+        </li>
+        
+        </ul>
+        <%if(!user){%>
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a class="nav-link h" href="/signup">SignUp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h" href="/login">LogIn</a>
+                </li>
+            </ul>
+        <%}else{%>
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a href="/saved" class="nav-link active" > Liked </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active h " href="/profile/<%=user.id%>"><%=user.username%></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h" href="/logout">LogOut</a>
+                </li>
+            </ul>
+        <%}%>
+        
+    </div>
+    </div>
+</nav>

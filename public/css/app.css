@@ -1,0 +1,30 @@
+
+.h:hover{
+    color: aquamarine;
+}
+.copy{
+    text-decoration: none;
+}
+.article{
+    background-color: antiquewhite;
+    border-radius: 15px;
+}
+.indexh1{
+    font-family: 'Dosis', sans-serif;
+    font-family: 'Merriweather', serif;
+    color: #F65A83;
+}
+.artih2{
+    font-family: 'Dosis', sans-serif;
+    font-family: 'Merriweather', serif;
+    font-family: 'Source Serif Pro', serif;
+}
+.artip{
+    font-family: 'Dosis', sans-serif;
+font-family: 'Merriweather', serif;
+font-family: 'Source Serif Pro', serif;
+}
+
+.artia{
+    color: black;
+}

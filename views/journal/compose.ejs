@@ -1,0 +1,11 @@
+<%layout('layout/boilerplate')-%>
+<div class="row mt-5">
+<h1>Tweet</h1>
+<form action="/journal/compose" method="POST">
+    <label class="form-label" for="postTitle">Title</label>
+    <input class="form-control" type="text" name="postTitle" id="postTitle">
+    <label class="form-label" for="pp">Tweet content</label>
+    <textarea class="form-control" name="pp" id="pp" cols="30" rows="10"></textarea>
+    <button class="btn btn-success btn-sm mt-2">Publish</button>
+</form>
+</div>

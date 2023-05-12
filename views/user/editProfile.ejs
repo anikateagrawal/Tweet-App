@@ -1,0 +1,23 @@
+<%layout('layout/boilerplate')-%>
+
+
+<form action="/profile/edit/<%=data.username%>" method="POST">
+    <h1><%=data.username%></h1>
+
+    <label class="form-label" for="postTitle">Name</label>
+    <input class="form-control" type="text" name="Name" id="postTitle" value="<%=data.Name%>">
+
+    <label class="form-label" for="postTitle">Email</label>
+    <input class="form-control" type="email" name="email" id="postTitle" value="<%=data.email%>">
+
+    <label class="form-label" for="postTitle">image</label>
+    <input class="form-control" type="text" name="image" id="postTitle" value="<%=data.image%>">
+
+    <label class="form-label" for="postTitle">BIO</label>
+    <input class="form-control" type="text" name="bio" id="postTitle" value="<%=data.bio%>">
+
+    <label class="form-label" for="postTitle">Address</label>
+    <input class="form-control" type="text" name="Address" id="postTitle" value="<%=data.Address%>">
+
+    <button class="btn btn-secondary btn-sm mt-2">Edit</button>
+</form>

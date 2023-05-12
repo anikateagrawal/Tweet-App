@@ -1,0 +1,20 @@
+<% layout('layout/boilerplate')-%>
+<div class="container">
+
+    <%for(let p of posts){%>
+        <div class="p-3 m-3  article arti">
+            
+            <h2><%=p.postTitle%></h2>
+            <%if(p.creator){%>
+                <a class="artia"  href="/profile/<%=p.creator.id%>"><p><img style="border-radius:50% ; margin-right:20px" src="<%=p.creator.image%>" alt="" height="30" width="30"> @ <%=p.creator.username%></p></a>
+            <%}%>
+            <p><%=p.pp.substring(0,400)%>... <a href="/journal/show/<%=p.id%>"> ReadMore</a></p>
+            
+            <%if(p.creator&&user&&p.creator.id==user.id){%>
+                <a href="/journal/edit/<%=p.id%>"><button class="btn btn-secondary btn-sm">Edit</button></a>
+                <form class="d-inline-block" action="/journal/<%=p.id%>?_method=DELETE" method="POST"><button class="btn btn-secondary btn-sm">DELETE</button></form>
+            <%}%>
+            <form class="d-inline-block" action="/journal/saved/<%=p.id%>?_method=delete" method="post"><button class="btn btn-danger">Remove Like</button></form>
+        </div>
+    <%}%>
+</div>

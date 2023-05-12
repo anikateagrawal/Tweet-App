@@ -1,0 +1,10 @@
+<%layout('layout/boilerplate')-%>
+
+<h1>Edit</h1>
+<form action="/journal/edit/<%=post.id%>" method="POST">
+    <label class="form-label" for="postTitle">Title</label>
+    <input class="form-control" type="text" name="postTitle" id="postTitle" value="<%=post.postTitle%>">
+    <label class="form-label" for="pp">Post</label>
+    <textarea class="form-control" name="pp" id="pp" cols="30" rows="10"><%=post.pp%></textarea>
+    <button class="btn btn-secondary btn-sm mt-2">Edit</button>
+</form>

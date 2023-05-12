@@ -1,0 +1,30 @@
+<%layout('layout/boilerplate')-%>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card mt-5 pt-3 d-flex align-items-center" style="width: 18rem;">
+            <img src="<%=profile.image%>" class="card-img-top image" alt="...">
+            <div class="card-body">
+            <h5 class="card-title"><%=profile.username%></h5>
+            <h6 class="card-text"><%=profile.Name%></h6>
+            <p class="card-text"><%=profile.email%></p>
+            <p class="card-text"><%=profile.bio%></p>
+            <p class="card-text"><%=profile.Address%></p>
+            <p>Followers : <%=profile.followers.length%> </p>
+            <p>Following : <%=profile.following.length%></p>
+            <%if(user && profile.id==user.id){%>
+            <a href="/profile/edit/<%=profile.id%>" class="btn btn-primary">Edit</a>
+            <%}else if(user){%>
+                <%if(!user.following.includes(profile.id)){%>
+                <form action="/profile/follow/<%=profile.id%>" method="post" class="d-inline"><button class="btn btn-success">Follow</button></form>
+                <%}else{%>
+                    <form action="/profile/follow/<%=profile.id%>?_method=delete" method="post" class="d-inline"><button class="btn btn-danger">Unfollow</button></form>
+                    <%}%>
+            <%}%>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <%-include('../partials/article')%>
+    </div>
+</div>
