@@ -18,9 +18,9 @@ const reviewRoutes=require('./routes/reviewsRoutes');
 const userRoutes=require('./routes/userRoutes');
 const profileRoutes=require('./routes/profileRoutes');
 
-dburl2="mongodb+srv://Anikate7316ag:Anikate%4025@cluster0.ofjnmbo.mongodb.net/TweetApp";
-dburl='mongodb://127.0.0.1:27017/TweetApp';
-
+dburl="mongodb+srv://Anikate7316ag:Anikate%4025@cluster0.ofjnmbo.mongodb.net/TweetApp";
+dburl2='mongodb://127.0.0.1:27017/TweetApp';
+ 
 
 const User = require('./model/user');
 passport.use(new LocalStrategy(User.authenticate()));
